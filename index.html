@@ -13,79 +13,67 @@
         nav { background-color: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; justify-content: center; gap: 15px; padding: 12px; position: sticky; top: 0; }
         nav a { text-decoration: none; color: #2a5298; font-weight: bold; padding: 8px 16px; border-radius: 20px; transition: 0.3s; }
         nav a:hover { background-color: #2a5298; color: white; }
-        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
-        .card { background: white; border-radius: 12px; padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .card h2 { color: #1e3c72; border-bottom: 2px solid #eef2f5; padding-bottom: 10px; margin-bottom: 15px; display: flex; align-items: center; justify-content: space-between; }
-        .badge { background-color: #e74c3c; color: white; font-size: 0.8rem; padding: 4px 10px; border-radius: 12px; }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 8px; }
-        .announcement { background-color: #eebf3115; border-left: 4px solid #f39c12; padding: 12px 15px; margin: 10px 0; border-radius: 0 8px 8px 0; }
-        footer { text-align: center; padding: 20px; font-size: 0.9rem; color: #666; margin-top: 40px; }
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card { background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 6px 12px rgba(0,0,0,0.1); }
+        .card h3 { color: #1e3c72; margin-bottom: 15px; }
+        .card p { color: #666; margin-bottom: 20px; font-size: 0.95rem; }
+        .btn { display: inline-block; background-color: #2a5298; color: white; text-decoration: none; padding: 8.px 16px; border-radius: 6px; font-weight: bold; padding: 8px 20px; }
+        .btn:hover { background-color: #1e3c72; }
+        footer { text-align: center; padding: 20px; font-size: 0.9rem; color: #666; margin-top: 60px; }
     </style>
+    <!-- TÀI LIỆU & ĐƯỜNG DẪN HỮU ÍCH -->
+        <div class="card" id="tai-lieu">
+            <h2>📚 Tài Liệu & Đường Dẫn Hữu Ích</h2>
+            <ul>
+                <!-- Thay https://azota.vn bằng đường dẫn Azota chính xác của thầy -->
+                <li><a href="https://azota.vn" target="_blank">Làm bài tập & Kiểm tra trên Azota</a></li>
+                
+                <!-- Đường dẫn trang web chấm bài tự động hoặc trang khác -->
+                <li><a href="https://onlinegdb.com" target="_blank">Trang web chấm bài tự động (OnlineGDB / Themis)</a></li>
+            </ul>
+        </div>
 </head>
 <body>
 
     <header>
         <h1>CỔNG THÔNG TIN HỌC TẬP MÔN TIN HỌC</h1>
-        <p>Cập nhật thông tin, bài tập và thông báo hàng tháng cho học sinh</p>
+        <p>Thầy giáo: Nguyễn Mạnh Nguyên | THPT Thanh Chương 1</p>
     </header>
 
+    <!-- MENU ĐIỀU HƯỚNG LIÊN KẾT CÁC TRANG -->
     <nav>
-        <a href="#thong-bao">Thông Báo Mới</a>
-        <a href="#lop-11a2">Lớp 11A2</a>
-        <a href="#lop-12a2">Lớp 12A2</a>
-        <a href="#tai-lieu">Tài Liệu Học Tập</a>
+        <a href="index.html">Trang Chủ</a>
+        <a href="thongbao.html">Thông Báo</a>
+        <a href="lop11a2.html">Lớp 11A2</a>
+        <a href="lop12a2.html">Lớp 12A2</a>
     </nav>
 
     <div class="container">
-        <!-- KHU VỰC THÔNG BÁO CHUNG HÀNG THÁNG -->
-        <div class="card" id="thong-bao">
-            <h2>📢 Thông Báo Tháng 11/2026 <span class="badge">Mới</span></h2>
-            <div class="announcement">
-                <strong>Lịch kiểm tra định kỳ:</strong> Tất cả các lớp sẽ thực hiện bài kiểm tra thực hành trên máy tính vào tuần thứ 3 của tháng.
-            </div>
-            <ul>
-                <li>Đề nghị học sinh hoàn thành các bài tập lập trình C++ trên hệ thống trước ngày 15 hàng tháng.</li>
-                <li>Xem chi tiết nhiệm vụ học tập của từng lớp bên dưới.</li>
-            </ul>
+        <!-- Khối Thông báo -->
+        <div class="card">
+            <h3>📢 Bảng Tin & Thông Báo</h3>
+            <p>Xem các thông báo mới nhất, lịch kiểm tra và hướng dẫn hàng tháng.</p>
+            <a href="thongbao.html" class="btn">Xem Thông Báo</a>
         </div>
 
-        <!-- THÔNG TIN LỚP 11A2 -->
-        <div class="card" id="lop-11a2">
-            <h2>💻 Khối Lớp 11 (11A2)</h2>
-            <p><strong>Nội dung trọng tâm tháng này:</strong> Thuật toán tìm kiếm & Sắp xếp cơ bản trong C++.</p>
-            <br>
-            <h3>📌 Nhiệm vụ học tập:</h3>
-            <ul>
-                <li>Bài tập 1: Cài đặt thuật toán Tìm kiếm nhị phân (Binary Search).</li>
-                <li>Bài tập 2: Ứng dụng kỹ thuật Mảng cộng dồn (Prefix Sum).</li>
-            </ul>
+        <!-- Khối Lớp 11A2 -->
+        <div class="card">
+            <h3>💻 Lớp 11A2</h3>
+            <p>Nội dung học tập, bài tập C++ và tài liệu dành riêng cho lớp 11A2.</p>
+            <a href="lop11a2.html" class="btn">Vào Lớp 11A2</a>
         </div>
 
-        <!-- THÔNG TIN LỚP 12A2 -->
-        <div class="card" id="lop-12a2">
-            <h2>🚀 Khối Lớp 12 (12A2)</h2>
-            <p><strong>Nội dung trọng tâm tháng này:</strong> Ôn tập Lập trình web cơ bản (HTML/CSS) & Chuyện đề C++ nâng cao.</p>
-            <br>
-            <h3>📌 Nhiệm vụ học tập:</h3>
-            <ul>
-                <li>Hoàn thiện trang web cá nhân đầu tiên bằng HTML/CSS.</li>
-                <li>Luyện tập các bài toán Quy hoạch động cơ bản.</li>
-            </ul>
-        </div>
-
-        <!-- TÀI LIỆU HỌC TẬP -->
-        <div class="card" id="tai-lieu">
-            <h2>📚 Tài Liệu & Đường Dẫn Hữu Ích</h2>
-            <ul>
-                <li><a href="#" target="_blank">Đường dẫn làm bài thi trắc nghiệm (Azota / vnEdu)</a></li>
-                <li><a href="#" target="_blank">Trang web chấm bài tự động (Themis / OnlineGDB)</a></li>
-            </ul>
+        <!-- Khối Lớp 12A2 -->
+        <div class="card">
+            <h3>🚀 Lớp 12A2</h3>
+            <p>Nội dung ôn tập, bài tập lập trình web và định hướng cho lớp 12A2.</p>
+            <a href="lop12a2.html" class="btn">Vào Lớp 12A2</a>
         </div>
     </div>
 
     <footer>
-        <p>© 2026 Trang web học tập môn Tin học - Giáo viên: Nguyễn Mạnh Nguyên</p>
+        <p>© 2026 Trang web học tập môn Tin học - THPT Thanh Chương 1</p>
     </footer>
 
 </body>
