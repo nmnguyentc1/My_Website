@@ -3,89 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cổng Thông Tin Lớp Học</title>
+    <title>Cổng Thông Tin Lớp Học - THPT Thanh Chương 1</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f9; color: #333; line-height: 1.6; }
+        
+        /* Phần Header */
         header { background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; text-align: center; padding: 2.5rem 1rem; }
         header h1 { font-size: 2rem; margin-bottom: 0.5rem; }
         header p { font-size: 1.1rem; opacity: 0.9; }
-        nav { background-color: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; justify-content: center; gap: 15px; padding: 12px; position: sticky; top: 0; }
+
+        /* Menu điều hướng */
+        nav { background-color: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; justify-content: center; gap: 20px; padding: 12px; position: sticky; top: 0; z-index: 100; }
         nav a { text-decoration: none; color: #2a5298; font-weight: bold; padding: 8px 16px; border-radius: 20px; transition: 0.3s; }
-        nav a:hover { background-color: #2a5298; color: white; }
-        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
-        .card { background: white; border-radius: 12px; padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .card h2 { color: #1e3c72; border-bottom: 2px solid #eef2f5; padding-bottom: 10px; margin-bottom: 15px; display: flex; align-items: center; justify-content: space-between; }
-        .badge { background-color: #e74c3c; color: white; font-size: 0.8rem; padding: 4px 10px; border-radius: 12px; }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 8px; }
-        .announcement { background-color: #eebf3115; border-left: 4px solid #f39c12; padding: 12px 15px; margin: 10px 0; border-radius: 0 8px 8px 0; }
-        footer { text-align: center; padding: 20px; font-size: 0.9rem; color: #666; margin-top: 40px; }
+        nav a:hover, nav a.active { background-color: #2a5298; color: white; }
+
+        /* Container chính */
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        
+        /* Khung hiển thị hình ảnh tập thể lớp */
+        .hero-banner { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; margin-bottom: 30px; }
+        
+        /* Tối ưu ảnh sáng, nét và đẹp */
+        .hero-banner img {
+            width: 100%;
+            max-width: 1000px;
+            height: auto;
+            display: block;
+            margin: 0 auto 15px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            filter: brightness(1.06) contrast(1.04) saturate(1.08);
+            image-rendering: -webkit-optimize-contrast;
+        }
+
+        .hero-banner h2 { color: #1e3c72; margin-bottom: 10px; font-size: 1.5rem; }
+        .hero-banner p { color: #555; font-size: 1.05rem; }
+
+        /* Khối thông báo nhanh */
+        .quick-news { background: #fff; border-left: 5px solid #f39c12; padding: 20px; border-radius: 0 8px 8px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 30px; }
+        .quick-news h3 { color: #d35400; margin-bottom: 8px; }
+
+        /* Chân trang (Footer) chứa đường dẫn hữu ích */
+        footer { background-color: #1e3c72; color: white; text-align: center; padding: 30px 20px; margin-top: 50px; }
+        footer h3 { color: #ffeb3b; margin-bottom: 15px; }
+        footer a { color: #ffffff; text-decoration: none; font-weight: bold; background: rgba(255,255,255,0.15); padding: 6px 14px; border-radius: 20px; transition: 0.3s; display: inline-block; margin: 5px; }
+        footer a:hover { background-color: #ffeb3b; color: #1e3c72; }
+        .footer-links { margin: 15px 0; }
+        .copyright { font-size: 0.9rem; opacity: 0.8; margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 15px; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>CỔNG THÔNG TIN HỌC TẬP MÔN TIN HỌC</h1>
-        <p>Cập nhật thông tin, bài tập và thông báo hàng tháng cho học sinh</p>
+        <p>Thầy giáo: Nguyễn Mạnh Nguyên | Trường THPT Thanh Chương 1</p>
     </header>
 
+    <!-- MENU ĐIỀU HƯỚNG -->
     <nav>
-        <a href="#thong-bao">Thông Báo Mới</a>
-        <a href="#lop-11a2">Lớp 11A2</a>
-        <a href="#lop-12a2">Lớp 12A2</a>
-        <a href="#tai-lieu">Tài Liệu Học Tập</a>
+        <a href="index.html" class="active">Trang Chủ</a>
+        <a href="thongbao.html">Thông Báo</a>
+        <a href="lop11a2.html">Lớp 11A2</a>
+        <a href="lop12a2.html">Lớp 12A2</a>
     </nav>
 
     <div class="container">
-        <!-- KHU VỰC THÔNG BÁO CHUNG HÀNG THÁNG -->
-        <div class="card" id="thong-bao">
-            <h2>📢 Thông Báo Tháng 11/2026 <span class="badge">Mới</span></h2>
-            <div class="announcement">
-                <strong>Lịch kiểm tra định kỳ:</strong> Tất cả các lớp sẽ thực hiện bài kiểm tra thực hành trên máy tính vào tuần thứ 3 của tháng.
-            </div>
-            <ul>
-                <li>Đề nghị học sinh hoàn thành các bài tập lập trình C++ trên hệ thống trước ngày 15 hàng tháng.</li>
-                <li>Xem chi tiết nhiệm vụ học tập của từng lớp bên dưới.</li>
-            </ul>
+        
+        <!-- KHU VỰC ẢNH TẬP THỂ LỚP -->
+        <div class="hero-banner">
+            <img src="lop_a2k63.jpg" alt="Tập thể lớp THPT Thanh Chương 1 Lễ Khai Giảng 2026-2027">
+            <h2>Chào mừng các em học sinh đến với không gian học tập trực tuyến!</h2>
+            <p>Nơi cập nhật thông tin môn Tin học, lịch kiểm tra định kỳ và tài liệu ôn tập của các lớp 11A2 và 12A2.</p>
         </div>
 
-        <!-- THÔNG TIN LỚP 11A2 -->
-        <div class="card" id="lop-11a2">
-            <h2>💻 Khối Lớp 11 (11A2)</h2>
-            <p><strong>Nội dung trọng tâm tháng này:</strong> Thuật toán tìm kiếm & Sắp xếp cơ bản trong C++.</p>
-            <br>
-            <h3>📌 Nhiệm vụ học tập:</h3>
-            <ul>
-                <li>Bài tập 1: Cài đặt thuật toán Tìm kiếm nhị phân (Binary Search).</li>
-                <li>Bài tập 2: Ứng dụng kỹ thuật Mảng cộng dồn (Prefix Sum).</li>
-            </ul>
+        <!-- BẢNG TIN TÓM TẮT NHANH -->
+        <div class="quick-news">
+            <h3>📢 Thông báo quan trọng tháng này</h3>
+            <p>Học sinh các lớp hoàn thành đúng hạn các bài tập lập trình C++ và theo dõi lịch kiểm tra chi tiết tại mục <strong>Thông Báo</strong> hoặc trang riêng của từng lớp trên menu phía trên.</p>
         </div>
 
-        <!-- THÔNG TIN LỚP 12A2 -->
-        <div class="card" id="lop-12a2">
-            <h2>🚀 Khối Lớp 12 (12A2)</h2>
-            <p><strong>Nội dung trọng tâm tháng này:</strong> Ôn tập Lập trình web cơ bản (HTML/CSS) & Chuyện đề C++ nâng cao.</p>
-            <br>
-            <h3>📌 Nhiệm vụ học tập:</h3>
-            <ul>
-                <li>Hoàn thiện trang web cá nhân đầu tiên bằng HTML/CSS.</li>
-                <li>Luyện tập các bài toán Quy hoạch động cơ bản.</li>
-            </ul>
-        </div>
-
-        <!-- TÀI LIỆU HỌC TẬP -->
-        <div class="card" id="tai-lieu">
-            <h2>📚 Tài Liệu & Đường Dẫn Hữu Ích</h2>
-            <ul>
-                <li><a href="#" target="_blank">Đường dẫn làm bài thi trắc nghiệm (Azota / vnEdu)</a></li>
-                <li><a href="#" target="_blank">Trang web chấm bài tự động (Themis / OnlineGDB)</a></li>
-            </ul>
-        </div>
     </div>
 
+    <!-- CHÂN TRANG (FOOTER) CHỨA TÀI LIỆU & ĐƯỜNG DẪN HỮU ÍCH -->
     <footer>
-        <p>© 2026 Trang web học tập môn Tin học - Giáo viên: Nguyễn Mạnh Nguyên</p>
+        <h3>📚 Tài Liệu & Đường Dẫn Hữu Ích</h3>
+        <div class="footer-links">
+            <a href="https://azota.vn" target="_blank">Làm bài tập trên Azota</a>
+            <a href="https://onlinegdb.com" target="_blank">Trang chấm bài OnlineGDB</a>
+        </div>
+        <div class="copyright">
+            © 2026 Trang web học tập môn Tin học - THPT Thanh Chương 1, Nghệ An
+        </div>
     </footer>
 
 </body>
