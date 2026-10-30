@@ -5,41 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cổng Thông Tin Lớp Học - THPT Thanh Chương 1</title>
     <style>
-  /* Định nghĩa lớp CSS để tối ưu hóa hình ảnh */
-  .anh-tap-the-toi-uu {
-    /* 1. Kích thước phù hợp */
-    width: 100%;             /* Chiều rộng tự động co giãn theo khung */
-    max-width: 1200px;      /* Giới hạn chiều rộng tối đa để ảnh không bị vỡ trên màn hình lớn */
-    height: auto;            /* Tự động tính chiều cao để không bị méo ảnh */
-    display: block;          /* Hiển thị dạng khối */
-    margin: 0 auto;         /* Căn giữa ảnh */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f9; color: #333; line-height: 1.6; }
+        
+        /* Phần Header */
+        header { background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; text-align: center; padding: 2.5rem 1rem; }
+        header h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+        header p { font-size: 1.1rem; opacity: 0.9; }
 
-    /* 2. Giúp ảnh sắc nét hơn */
-    image-rendering: -webkit-optimize-contrast; /* Tối ưu độ tương phản cho trình duyệt Webkit (Chrome, Safari) */
-    image-rendering: crisp-edges;               /* Giúp các cạnh sắc nét hơn (Firefox) */
-    
-    /* 3. Giúp ảnh sáng và nổi bật hơn (Bộ lọc CSS) */
-    filter: brightness(1.08) contrast(1.05) saturate(1.1); 
-    /* brightness(1.08): Tăng 8% độ sáng */
-    /* contrast(1.05): Tăng 5% độ tương phản để chữ và mặt rõ hơn */
-    /* saturate(1.1): Tăng 10% độ tươi của màu sắc (màu cờ, màu áo) */
+        /* Menu điều hướng */
+        nav { background-color: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; justify-content: center; gap: 20px; padding: 12px; position: sticky; top: 0; z-index: 100; }
+        nav a { text-decoration: none; color: #2a5298; font-weight: bold; padding: 8px 16px; border-radius: 20px; transition: 0.3s; }
+        nav a:hover, nav a.active { background-color: #2a5298; color: white; }
 
-    /* 4. Thêm hiệu ứng trang trí (tùy chọn) */
-    border-radius: 12px;     /* Bo góc ảnh cho mềm mại */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* Thêm đổ bóng nhẹ để ảnh nổi bật lên khỏi nền web */
-    
-    /* 5. Tối ưu load ảnh */
-    content-visibility: auto; /* Chỉ render ảnh khi người dùng cuộn đến, giúp trang load nhanh hơn */
-  }
-</style>
+        /* Container chính */
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        
+        /* Khung hiển thị hình ảnh tập thể */
+        .hero-banner { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; margin-bottom: 30px; }
+        
+        /* Tối ưu ảnh sáng, nét và đẹp */
+        .hero-banner img {
+            width: 100%;
+            max-width: 1000px;
+            height: auto;
+            display: block;
+            margin: 0 auto 15px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            filter: brightness(1.06) contrast(1.04) saturate(1.08); /* Làm ảnh sáng và sắc nét hơn */
+            image-rendering: -webkit-optimize-contrast;
+        }
 
-<!-- Thẻ HTML gọi ảnh, thầy nhớ thay 'duong-dan-anh-cua-thay.jpg' bằng link ảnh thật -->
-<img 
-  src="duong-dan-anh-cua-thay.jpg" 
-  alt="Tập thể lớp THPT Thanh Chương 1 Lễ Khai Giảng 2026-2027" 
-  class="anh-tap-the-toi-uu"
-  loading="lazy"
->
+        .hero-banner h2 { color: #1e3c72; margin-bottom: 10px; font-size: 1.5rem; }
+        .hero-banner p { color: #555; font-size: 1.05rem; }
+
+        /* Khối thông báo nhanh */
+        .quick-news { background: #fff; border-left: 5px solid #f39c12; padding: 20px; border-radius: 0 8px 8px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 30px; }
+        .quick-news h3 { color: #d35400; margin-bottom: 8px; }
+
+        /* Chân trang (Footer) chứa đường dẫn hữu ích */
+        footer { background-color: #1e3c72; color: white; text-align: center; padding: 30px 20px; margin-top: 50px; }
+        footer h3 { color: #ffeb3b; margin-bottom: 15px; }
+        footer a { color: #ffffff; text-decoration: none; font-weight: bold; background: rgba(255,255,255,0.15); padding: 6px 14px; border-radius: 20px; transition: 0.3s; display: inline-block; margin: 5px; }
+        footer a:hover { background-color: #ffeb3b; color: #1e3c72; }
+        .footer-links { margin: 15px 0; }
+        .copyright { font-size: 0.9rem; opacity: 0.8; margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 15px; }
+    </style>
 </head>
 <body>
 
@@ -58,11 +70,10 @@
 
     <div class="container">
         
-        <!-- KHU VỰC ẢNH TẬP THỂ / NHÀ TRƯỜNG -->
+        <!-- KHU VỰC ẢNH TẬP THỂ LỚP -->
         <div class="hero-banner">
-            <!-- Thay đường dẫn ảnh của thầy vào phần src="..." bên dưới -->
-            <img src="lop-a2k63.jpg" alt="Tập thể lớp THPT Thanh Chương 1">
-            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1000&auto=format&fit=crop" alt="Tập thể lớp và nhà trường">
+            <!-- Đã trỏ đúng tên file ảnh lop_a2k63.jpg của thầy -->
+            <img src="lop_a2k63.jpg" alt="Tập thể lớp THPT Thanh Chương 1 Lễ Khai Giảng 2026-2027">
             <h2>Chào mừng các em học sinh đến với không gian học tập trực tuyến!</h2>
             <p>Nơi cập nhật thông tin môn Tin học, lịch kiểm tra định kỳ và tài liệu ôn tập của các lớp 11A2 và 12A2.</p>
         </div>
@@ -75,11 +86,11 @@
 
     </div>
 
-    <!-- CHÂN TRANG (FOOTER) CHỨA TÀI LIỆU & ĐƯỜNG DẪN -->
+    <!-- CHÂN TRANG (FOOTER) CHỨA TÀI LIỆU & ĐƯỜNG DẪN HỮU ÍCH -->
     <footer>
         <h3>📚 Tài Liệu & Đường Dẫn Hữu Ích</h3>
         <div class="footer-links">
-            <a href="https://azota.vn" target="_blank">Làm bài tập trên Azota</a> | 
+            <a href="https://azota.vn" target="_blank">Làm bài tập trên Azota</a>
             <a href="https://onlinegdb.com" target="_blank">Trang chấm bài OnlineGDB</a>
         </div>
         <div class="copyright">
