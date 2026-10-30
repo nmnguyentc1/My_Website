@@ -6,7 +6,20 @@
     <title>Cổng Thông Tin Lớp Học - THPT Thanh Chương 1</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f9; color: #333; line-height: 1.6; }
+        
+        /* Cấu hình chung cho trang và Ảnh nền */
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            color: #333; 
+            line-height: 1.6;
+            
+            /* Thiết lập ảnh nền website */
+            background-image: url('lop_a2k63.jpg');
+            background-size: cover;          /* Phủ kín màn hình */
+            background-position: center;     /* Canh giữa ảnh */
+            background-repeat: no-repeat;    /* Không lặp lại ảnh */
+            background-attachment: fixed;    /* Cố định ảnh nền khi cuộn trang */
+        }
         
         /* Phần Header */
         header { background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; text-align: center; padding: 2.5rem 1rem; }
