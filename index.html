@@ -7,7 +7,7 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
-        /* Cấu hình chung cho trang - Đã chuyển sang nền màu sáng, loại bỏ hoàn toàn ảnh nền */
+        /* Cấu hình chung cho trang */
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             color: #333; 
@@ -22,18 +22,84 @@
         header h1 { font-size: 2rem; margin-bottom: 0.5rem; }
         header p { font-size: 1.1rem; opacity: 0.9; }
 
-        /* Menu điều hướng */
-        nav { background-color: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; justify-content: center; gap: 20px; padding: 12px; position: sticky; top: 0; z-index: 100; }
-        nav a { text-decoration: none; color: #2a5298; font-weight: bold; padding: 8px 16px; border-radius: 20px; transition: 0.3s; }
-        nav a:hover, nav a.active { background-color: #2a5298; color: white; }
+        /* Menu điều hướng chính */
+        .navbar { 
+            background-color: #ffffff; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            gap: 15px; 
+            padding: 10px 20px; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
+
+        .nav-link { 
+            text-decoration: none; 
+            color: #2a5298; 
+            font-weight: bold; 
+            padding: 8px 16px; 
+            border-radius: 20px; 
+            transition: all 0.3s ease; 
+            display: inline-block;
+        }
+
+        .nav-link:hover, .nav-link.active { 
+            background-color: #2a5298; 
+            color: white; 
+        }
+
+        /* --- CẤU HÌNH MENU THẢ XUỐNG (DROPDOWN) --- */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ffffff;
+            min-width: 260px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            overflow: hidden;
+            z-index: 1001;
+            padding: 6px 0;
+            margin-top: 5px;
+        }
+
+        .dropdown-content a {
+            color: #333333;
+            padding: 10px 18px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.95rem;
+            text-align: left;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #eef2f7;
+            color: #1e3c72;
+            font-weight: 600;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
 
         /* Container chính */
-        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        .container { max-width: 950px; margin: 30px auto; padding: 0 20px; }
         
         /* Khung hiển thị hình ảnh tập thể lớp */
         .hero-banner { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; margin-bottom: 30px; }
         
-        /* Tối ưu ảnh sáng, nét và đẹp */
+        /* Tối ưu ảnh sáng, nét */
         .hero-banner img {
             width: 100%;
             max-width: 1000px;
@@ -53,7 +119,41 @@
         .quick-news { background: #fff; border-left: 5px solid #f39c12; padding: 20px; border-radius: 0 8px 8px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 30px; }
         .quick-news h3 { color: #d35400; margin-bottom: 8px; }
 
-        /* Chân trang (Footer) chứa đường dẫn hữu ích */
+        /* KHỐI THỜI KHÓA BIỂU & ĐẾM NGƯỢC */
+        .schedule-section {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        .schedule-section h3 { color: #1e3c72; margin-bottom: 15px; font-size: 1.3rem; border-bottom: 2px solid #eef2f7; padding-bottom: 8px; }
+        
+        .countdown-box {
+            background: #eef2f7;
+            border-radius: 8px;
+            padding: 12px 20px;
+            margin-bottom: 15px;
+            color: #1e3c72;
+            font-weight: 500;
+        }
+        .countdown-box span { color: #e74c3c; font-weight: bold; }
+
+        .tkb-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .tkb-table th, .tkb-table td {
+            border: 1px solid #e0e0e0;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+        .tkb-table th { background-color: #2a5298; color: white; }
+        .tkb-table tr:nth-child(even) { background-color: #f8fafc; }
+
+        /* Chân trang (Footer) */
         footer { background-color: #1e3c72; color: white; text-align: center; padding: 30px 20px; margin-top: 50px; }
         footer h3 { color: #ffeb3b; margin-bottom: 15px; }
         footer a { color: #ffffff; text-decoration: none; font-weight: bold; background: rgba(255,255,255,0.15); padding: 6px 14px; border-radius: 20px; transition: 0.3s; display: inline-block; margin: 5px; }
@@ -64,42 +164,39 @@
 </head>
 <body>
 
+    <!-- HEADER -->
     <header>
         <h1>CỔNG THÔNG TIN HỌC TẬP MÔN TIN HỌC</h1>
         <p>Thầy giáo: Nguyễn Mạnh Nguyên | Trường THPT Thanh Chương 1</p>
     </header>
-<!-- MENU ĐIỀU HƯỚNG CHÍNH -->
-<nav class="navbar">
-    <a href="index.html" class="nav-link active">Trang Chủ</a>
-    <a href="Thongbao.html" class="nav-link">Thông Báo</a>
 
-    <!-- Menu thả xuống Lớp 11A2 -->
-    <div class="dropdown">
-        <a href="11A2.html" class="nav-link">Lớp 11A2</a>
-        <div class="dropdown-content">
-            <a href="#tkb-11a2">Thời khóa biểu & Đếm ngược tiết học</a>
-            <a href="#thong-bao-11a2">Thông báo riêng của lớp</a>
-            <a href="#ky-niem-11a2">Góc kỷ niệm / Bàn giao bài tập</a>
+    <!-- MENU ĐIỀU HƯỚNG CHÍNH (Đã sửa chuẩn 1 thanh navbar) -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-link active">Trang Chủ</a>
+        <a href="Thongbao.html" class="nav-link">Thông Báo</a>
+
+        <!-- Menu thả xuống Lớp 11A2 -->
+        <div class="dropdown">
+            <a href="11A2.html" class="nav-link">Lớp 11A2</a>
+            <div class="dropdown-content">
+                <a href="#tkb-11a2">Thời khóa biểu & Đếm ngược tiết học</a>
+                <a href="#thong-bao-11a2">Thông báo riêng của lớp</a>
+                <a href="#ky-niem-11a2">Góc kỷ niệm / Bàn giao bài tập</a>
+            </div>
         </div>
-    </div>
 
-    <!-- Menu thả xuống Lớp 12A2 -->
-    <div class="dropdown">
-        <a href="12A2.html" class="nav-link">Lớp 12A2</a>
-        <div class="dropdown-content">
-            <a href="#tkb-12a2">Thời khóa biểu & Đếm ngược tiết học</a>
-            <a href="#thong-bao-12a2">Thông báo riêng của lớp</a>
-            <a href="#ky-niem-12a2">Góc kỷ niệm / Bàn giao bài tập</a>
+        <!-- Menu thả xuống Lớp 12A2 -->
+        <div class="dropdown">
+            <a href="12A2.html" class="nav-link">Lớp 12A2</a>
+            <div class="dropdown-content">
+                <a href="#tkb-12a2">Thời khóa biểu & Đếm ngược tiết học</a>
+                <a href="#thong-bao-12a2">Thông báo riêng của lớp</a>
+                <a href="#ky-niem-12a2">Góc kỷ niệm / Bàn giao bài tập</a>
+            </div>
         </div>
-    </div>
-</nav>
-        
-       <!-- MENU ĐIỀU HƯỚNG CHÍNH -->
-<nav class="navbar">
-    <a href="index.html" class="nav-link active">Trang Chủ</a>
-    <a href="Thongbao.html" class="nav-link">Thông Báo</a>
+    </nav>
 
- 
+    <!-- CONTAINER CHÍNH -->
     <div class="container">
         
         <!-- KHU VỰC ẢNH TẬP THỂ LỚP -->
@@ -115,9 +212,50 @@
             <p>Học sinh các lớp hoàn thành đúng hạn các bài tập lập trình C++ và theo dõi lịch kiểm tra chi tiết tại mục <strong>Thông Báo</strong> hoặc trang riêng của từng lớp trên menu phía trên.</p>
         </div>
 
+        <!-- THỜI KHÓA BIỂU & ĐẾM NGƯỢC LỚP 12A2 -->
+        <div id="tkb-12a2" class="schedule-section">
+            <h3>📅 Thời Khóa Biểu & Lịch Học - Lớp 12A2</h3>
+            <div class="countdown-box">
+                ⏳ Tiết Tin học tiếp theo: <span>Thứ 5 - Tiết 4</span> (Đếm ngược: <span>02 ngày 14 giờ</span>)
+            </div>
+            <table class="tkb-table">
+                <thead>
+                    <tr>
+                        <th>Tiết</th>
+                        <th>Thứ 2</th>
+                        <th>Thứ 3</th>
+                        <th>Thứ 4</th>
+                        <th>Thứ 5</th>
+                        <th>Thứ 6</th>
+                        <th>Thứ 7</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1 - 2</td>
+                        <td>Chào cờ / SH</td>
+                        <td>Toán</td>
+                        <td>Vật lý</td>
+                        <td>Hóa học</td>
+                        <td>Ngữ văn</td>
+                        <td>Tiếng Anh</td>
+                    </tr>
+                    <tr>
+                        <td>3 - 4</td>
+                        <td>Toán</td>
+                        <td>Ngữ văn</td>
+                        <td>Lịch sử</td>
+                        <td><strong>Tin học</strong></td>
+                        <td>Sinh học</td>
+                        <td>GDQP</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
     </div>
 
-    <!-- CHÂN TRANG (FOOTER) CHỨA TÀI LIỆU & ĐƯỜNG DẪN HỮU ÍCH -->
+    <!-- CHÂN TRANG (FOOTER) -->
     <footer>
         <h3>📚 Tài Liệu & Đường Dẫn Hữu Ích</h3>
         <div class="footer-links">
